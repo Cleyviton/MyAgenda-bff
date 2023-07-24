@@ -1,7 +1,6 @@
 import { AppDataSource } from "../../data-source";
 import { Client } from "../../entities";
 import {
-  TClient,
   TClientResponse,
   TClientUpdate,
 } from "../../interfaces/clients.interfaces";
