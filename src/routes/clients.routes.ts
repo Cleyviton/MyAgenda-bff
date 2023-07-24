@@ -15,22 +15,22 @@ import verifyCustomerExistsMiddleware from "../middlewares/verifyCustomerExists.
 import { ensureAuthMiddleware } from "../middlewares/ensureAuth.middleware";
 import verifyCustomerIsOwnermiddleware from "../middlewares/verifyCustomerIsOwner.middleware";
 
-const clietRoutes = Router();
+const clientRoutes = Router();
 
-clietRoutes.post(
+clientRoutes.post(
   "/",
   ensureDataIsValid(clientSchemaRequest),
   checkExistingEmail,
   createClientController
 );
-clietRoutes.get(
+clientRoutes.get(
   "/:id",
   ensureAuthMiddleware,
   verifyCustomerExistsMiddleware,
   verifyCustomerIsOwnermiddleware,
   retrieveClientController
 );
-clietRoutes.patch(
+clientRoutes.patch(
   "/:id",
   ensureDataIsValid(clientSchemaUpdate),
   ensureAuthMiddleware,
@@ -38,7 +38,7 @@ clietRoutes.patch(
   verifyCustomerIsOwnermiddleware,
   updateClientController
 );
-clietRoutes.delete(
+clientRoutes.delete(
   "/:id",
   ensureAuthMiddleware,
   verifyCustomerExistsMiddleware,
@@ -46,4 +46,4 @@ clietRoutes.delete(
   deleteClientController
 );
 
-export { clietRoutes };
+export { clientRoutes };
