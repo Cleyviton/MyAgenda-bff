@@ -5,8 +5,7 @@ import {
   ManyToOne,
   PrimaryGeneratedColumn,
 } from "typeorm";
-import { getRounds, hashSync } from "bcryptjs";
-import Client from "./clients.entity";
+import User from "./users.entity";
 
 @Entity("contacts")
 class Contact {
@@ -25,8 +24,8 @@ class Contact {
   @CreateDateColumn({ type: "date" })
   registrationDate?: Date | string;
 
-  @ManyToOne(() => Client)
-  client: Client;
+  @ManyToOne(() => User)
+  user: User;
 }
 
 export default Contact;

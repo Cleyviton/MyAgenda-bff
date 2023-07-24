@@ -1,15 +1,15 @@
 import { NextFunction, Request, Response } from "express";
 import { AppDataSource } from "../data-source";
-import { Client } from "../entities";
+import { User } from "../entities";
 
 const checkExistingEmail = async (
   req: Request,
   res: Response,
   next: NextFunction
 ): Promise<Response | void> => {
-  const clientRepository = AppDataSource.getRepository(Client);
+  const userRepository = AppDataSource.getRepository(User);
 
-  const ExistingEmail: boolean | undefined = await clientRepository.exist({
+  const ExistingEmail: boolean | undefined = await userRepository.exist({
     where: {
       email: req.body.email,
     },

@@ -26,7 +26,7 @@ const ensureAuthMiddleware = (
           message: "invalid token",
         });
       }
-      res.locals.clientId = decoded.sub;
+      res.locals.UserId = decoded.sub;
 
       return next();
     }

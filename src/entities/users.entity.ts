@@ -10,8 +10,8 @@ import {
 import { getRounds, hashSync } from "bcryptjs";
 import Contact from "./contacts.entity";
 
-@Entity("clients")
-class Client {
+@Entity("users")
+class User {
   @PrimaryGeneratedColumn("increment")
   id: number;
 
@@ -30,7 +30,7 @@ class Client {
   @CreateDateColumn({ type: "date" })
   registrationDate?: Date | string;
 
-  @OneToMany(() => Contact, (Contact) => Contact.client)
+  @OneToMany(() => Contact, (Contact) => Contact.user)
   contact: Contact[];
 
   @BeforeInsert()
@@ -44,4 +44,4 @@ class Client {
   }
 }
 
-export default Client;
+export default User;

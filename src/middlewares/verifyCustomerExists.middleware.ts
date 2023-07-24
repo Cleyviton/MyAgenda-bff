@@ -1,24 +1,24 @@
 import { NextFunction, Request, Response } from "express";
 import { AppDataSource } from "../data-source";
-import { Client } from "../entities";
+import { User } from "../entities";
 
 const verifyCustomerExistsMiddleware = async (
   req: Request,
   res: Response,
   next: NextFunction
 ): Promise<Response | void> => {
-  const clientId: number = parseInt(req.params.id);
-  const clientRepository = AppDataSource.getRepository(Client);
+  const userId: number = parseInt(req.params.id);
+  const userRepository = AppDataSource.getRepository(User);
 
-  const ExistingClient: boolean | undefined = await clientRepository.exist({
+  const ExistingUser: boolean | undefined = await userRepository.exist({
     where: {
-      id: clientId,
+      id: userId,
     },
   });
 
-  if (!ExistingClient) {
+  if (!ExistingUser) {
     return res.status(404).json({
-      message: "client not found",
+      message: "User not found",
     });
   }
 

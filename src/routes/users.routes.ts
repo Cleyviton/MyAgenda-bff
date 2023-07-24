@@ -1,49 +1,46 @@
 import { Router } from "express";
 import ensureDataIsValid from "../middlewares/ensureDataIsValid.middleware";
-import {
-  clientSchemaRequest,
-  clientSchemaUpdate,
-} from "../schemas/client.schemas";
+import { userSchemaRequest, userSchemaUpdate } from "../schemas/user.schemas";
 import checkExistingEmail from "../middlewares/checkExistingEmail.middleware";
 import {
-  createClientController,
-  deleteClientController,
-  retrieveClientController,
-  updateClientController,
-} from "../controllers/clients.controller";
+  createUserController,
+  deleteUserController,
+  retrieveUserController,
+  updateUserController,
+} from "../controllers/users.controller";
 import verifyCustomerExistsMiddleware from "../middlewares/verifyCustomerExists.middleware";
 import { ensureAuthMiddleware } from "../middlewares/ensureAuth.middleware";
 import verifyCustomerIsOwnermiddleware from "../middlewares/verifyCustomerIsOwner.middleware";
 
-const clientRoutes = Router();
+const userRoutes = Router();
 
-clientRoutes.post(
+userRoutes.post(
   "/",
-  ensureDataIsValid(clientSchemaRequest),
+  ensureDataIsValid(userSchemaRequest),
   checkExistingEmail,
-  createClientController
+  createUserController
 );
-clientRoutes.get(
+userRoutes.get(
   "/:id",
   ensureAuthMiddleware,
   verifyCustomerExistsMiddleware,
   verifyCustomerIsOwnermiddleware,
-  retrieveClientController
+  retrieveUserController
 );
-clientRoutes.patch(
+userRoutes.patch(
   "/:id",
-  ensureDataIsValid(clientSchemaUpdate),
+  ensureDataIsValid(userSchemaUpdate),
   ensureAuthMiddleware,
   verifyCustomerExistsMiddleware,
   verifyCustomerIsOwnermiddleware,
-  updateClientController
+  updateUserController
 );
-clientRoutes.delete(
+userRoutes.delete(
   "/:id",
   ensureAuthMiddleware,
   verifyCustomerExistsMiddleware,
   verifyCustomerIsOwnermiddleware,
-  deleteClientController
+  deleteUserController
 );
 
-export { clientRoutes };
+export { userRoutes };

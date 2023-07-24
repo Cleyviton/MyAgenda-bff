@@ -1,21 +1,21 @@
 import { NextFunction, Request, Response } from "express";
 import { AppDataSource } from "../data-source";
-import { Client } from "../entities";
+import { User } from "../entities";
 
 const verifyCustomerIsOwnermiddleware = async (
   req: Request,
   res: Response,
   next: NextFunction
 ): Promise<Response | void> => {
-  const authenticatedClientId: number = parseInt(res.locals.clientId);
-  const clientId: number = parseInt(req.params.id);
-  const clientRepository = AppDataSource.getRepository(Client);
+  const authenticatedUserId: number = parseInt(res.locals.UserId);
+  const userId: number = parseInt(req.params.id);
+  const userRepository = AppDataSource.getRepository(User);
 
-  const findClient: Client | null = await clientRepository.findOneBy({
-    id: clientId,
+  const findUser: User | null = await userRepository.findOneBy({
+    id: userId,
   });
 
-  if (authenticatedClientId !== findClient!.id) {
+  if (authenticatedUserId !== findUser!.id) {
     return res.status(403).json({
       message: "You dont`t have permissions",
     });
