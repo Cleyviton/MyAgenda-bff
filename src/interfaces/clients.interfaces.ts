@@ -3,7 +3,6 @@ import {
   clientSchema,
   clientSchemaRequest,
   clientSchemaResponse,
-  clientSchemaUpdate,
 } from "../schemas/client.schemas";
 import { DeepPartial } from "typeorm";
 
