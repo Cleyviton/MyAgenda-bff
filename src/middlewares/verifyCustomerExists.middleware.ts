@@ -10,13 +10,13 @@ const verifyCustomerExistsMiddleware = async (
   const userId: number = parseInt(req.params.id);
   const userRepository = AppDataSource.getRepository(User);
 
-  const ExistingUser: boolean | undefined = await userRepository.exist({
+  const existingUser: boolean | undefined = await userRepository.exist({
     where: {
       id: userId,
     },
   });
 
-  if (!ExistingUser) {
+  if (!existingUser) {
     return res.status(404).json({
       message: "User not found",
     });

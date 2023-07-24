@@ -33,6 +33,7 @@ const updateUserController = async (req: Request, res: Response) => {
 
   return res.json(user);
 };
+
 const deleteUserController = async (req: Request, res: Response) => {
   const userId: number = parseInt(req.params.id);
 

@@ -2,7 +2,6 @@ import { compareSync } from "bcryptjs";
 import { AppDataSource } from "../../data-source";
 import { User } from "../../entities";
 import { AppError } from "../../error";
-import { TUser } from "../../interfaces/users.interfaces";
 import { TLogin } from "../../interfaces/login.interfaces";
 import jwt from "jsonwebtoken";
 import "dotenv/config";
