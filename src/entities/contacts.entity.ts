@@ -15,7 +15,7 @@ class Contact {
   @Column({ type: "varchar", length: 55 })
   name: string;
 
-  @Column({ type: "varchar", length: 45, unique: true })
+  @Column({ type: "varchar", length: 45 })
   email: string;
 
   @Column({ type: "varchar", length: 20 })
@@ -24,7 +24,7 @@ class Contact {
   @CreateDateColumn({ type: "date" })
   registrationDate?: Date | string;
 
-  @ManyToOne(() => User)
+  @ManyToOne(() => User, (user) => user.contact)
   user: User;
 }
 

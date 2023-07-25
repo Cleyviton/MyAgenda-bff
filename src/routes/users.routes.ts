@@ -29,10 +29,11 @@ userRoutes.get(
 );
 userRoutes.patch(
   "/:id",
-  ensureDataIsValid(userSchemaUpdate),
   ensureAuthMiddleware,
-  verifyCustomerExistsMiddleware,
+  ensureDataIsValid(userSchemaUpdate),
   verifyCustomerIsOwnermiddleware,
+  verifyCustomerExistsMiddleware,
+  checkExistingEmail,
   updateUserController
 );
 userRoutes.delete(
