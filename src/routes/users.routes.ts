@@ -20,7 +20,7 @@ userRoutes.post(
   checkExistingEmail,
   createUserController
 );
-userRoutes.get("/retrive", ensureAuthMiddleware, retrieveUserController);
+userRoutes.get("/retrieve", ensureAuthMiddleware, retrieveUserController);
 userRoutes.patch(
   "/:id",
   ensureAuthMiddleware,
