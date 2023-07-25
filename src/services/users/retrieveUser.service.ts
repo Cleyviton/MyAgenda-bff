@@ -3,11 +3,13 @@ import { TUserResponse } from "../../interfaces/users.interfaces";
 import { User } from "../../entities";
 import { userSchemaResponse } from "../../schemas/user.schemas";
 
-const retrieveUserService = async (userId: number): Promise<TUserResponse> => {
+const retrieveUserService = async (
+  authenticatedUserId: number
+): Promise<TUserResponse> => {
   const userRepository = AppDataSource.getRepository(User);
 
   const user: User | null = await userRepository.findOneBy({
-    id: userId,
+    id: authenticatedUserId,
   });
 
   return userSchemaResponse.parse(user);

@@ -18,9 +18,9 @@ const createUserController = async (req: Request, res: Response) => {
 };
 
 const retrieveUserController = async (req: Request, res: Response) => {
-  const userId: number = parseInt(req.params.id);
+  const authenticatedUserId: number = parseInt(res.locals.UserId);
 
-  const user: TUserResponse = await retrieveUserService(userId);
+  const user: TUserResponse = await retrieveUserService(authenticatedUserId);
 
   return res.json(user);
 };
