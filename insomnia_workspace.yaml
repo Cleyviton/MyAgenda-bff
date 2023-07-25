@@ -1,0 +1,350 @@
+_type: export
+__export_format: 4
+__export_date: 2023-07-25T20:22:07.896Z
+__export_source: insomnia.desktop.app:v2023.4.0
+resources:
+  - _id: req_3d4791afe22a445b8abe5a82c0305b0a
+    parentId: fld_2364d3af857e470b8350c5561fb265b6
+    modified: 1690314978053
+    created: 1690235721450
+    url: "{{ _.baseURL }}users/"
+    name: Create User
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"name": "manu Ferreira",
+        	"email": "manu@mail.com",
+        	"password": "1234",
+        	"phone": "73981933554"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: bearer
+      token: "{{ _.token }}"
+      disabled: false
+    metaSortKey: -1687111464849
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_2364d3af857e470b8350c5561fb265b6
+    parentId: wrk_da39733c191f40cb87b8d6751fbfd413
+    modified: 1690235644407
+    created: 1687111481596
+    name: User
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1687111481596
+    _type: request_group
+  - _id: wrk_da39733c191f40cb87b8d6751fbfd413
+    parentId: null
+    modified: 1690316402925
+    created: 1690316385349
+    name: project MyAgenda
+    description: ""
+    scope: collection
+    _type: workspace
+  - _id: req_d3779395ab374528b2ff66dece3894a4
+    parentId: fld_2364d3af857e470b8350c5561fb265b6
+    modified: 1690315019125
+    created: 1687109778151
+    url: "{{ _.baseURL }}users/retrieve/"
+    name: retrieve User
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication:
+      type: bearer
+      token: "{{ _.token }}"
+    metaSortKey: -1687111464845.875
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_8344935a17bb4745b9fdd5a23222695b
+    parentId: fld_2364d3af857e470b8350c5561fb265b6
+    modified: 1690316227589
+    created: 1687112929012
+    url: "{{ _.baseURL }}users/4/"
+    name: Edite User ID
+    description: ""
+    method: PATCH
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"name": "Cleyviton keke",
+        	"email": "keke@mail.com"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: bearer
+      token: "{{ _.token }}"
+      disabled: false
+    metaSortKey: -1687111464842.75
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_e808cbb6a29a4a6e8a01eb54ca7361bc
+    parentId: fld_2364d3af857e470b8350c5561fb265b6
+    modified: 1690316237988
+    created: 1687113124362
+    url: "{{ _.baseURL }}users/6/"
+    name: Delete User ID
+    description: ""
+    method: DELETE
+    body: {}
+    parameters: []
+    headers: []
+    authentication:
+      type: bearer
+      token: "{{ _.token }}"
+    metaSortKey: -1687111464836.5
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_b571dc2f93a84dc18ba3b96af8efbc50
+    parentId: fld_beb259de9f6d4793a97774e6c74dff97
+    modified: 1690315247634
+    created: 1687059087620
+    url: "{{ _.baseURL }}contacts/"
+    name: Create Contact
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"name": "cleyviton Ferreira",
+        	"email": "cley@mail.com",
+        	"phone": "73981933554"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: bearer
+      token: "{{ _.token }}"
+      disabled: false
+    metaSortKey: -1687098332917.25
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_beb259de9f6d4793a97774e6c74dff97
+    parentId: wrk_da39733c191f40cb87b8d6751fbfd413
+    modified: 1690232727593
+    created: 1687111414683
+    name: Contacts
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1687111414683
+    _type: request_group
+  - _id: req_28ddca5f22b54a79ac5b1b5d6d9c89dc
+    parentId: fld_beb259de9f6d4793a97774e6c74dff97
+    modified: 1690308316040
+    created: 1687111362631
+    url: "{{ _.baseURL }}contacts/"
+    name: contacts
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication:
+      type: bearer
+      token: "{{ _.token }}"
+      disabled: false
+    metaSortKey: -1687098332867.25
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_d521020e70b4454dae5ea9b158756d34
+    parentId: fld_beb259de9f6d4793a97774e6c74dff97
+    modified: 1690315198177
+    created: 1690308329916
+    url: "{{ _.baseURL }}contacts/6/"
+    name: Contact ID
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication:
+      type: bearer
+      token: "{{ _.token }}"
+    metaSortKey: -1687098332817.25
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_2aeb7b73565c4b81babab7df07b3786d
+    parentId: fld_beb259de9f6d4793a97774e6c74dff97
+    modified: 1690315223618
+    created: 1690311592216
+    url: "{{ _.baseURL }}contacts/6/"
+    name: Edite contact ID
+    description: ""
+    method: PATCH
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"name": "cley Ferreira",
+        	"email": "keke@mail.com"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: bearer
+      token: "{{ _.token }}"
+      disabled: false
+    metaSortKey: -1687098332792.25
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_9600967f57104f9f80ae335d9e3fda67
+    parentId: fld_beb259de9f6d4793a97774e6c74dff97
+    modified: 1690315268578
+    created: 1690309618297
+    url: "{{ _.baseURL }}contacts/6/"
+    name: Delete Contact ID
+    description: ""
+    method: DELETE
+    body: {}
+    parameters: []
+    headers: []
+    authentication:
+      type: bearer
+      token: "{{ _.token }}"
+    metaSortKey: -1687098332767.25
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_88b49e37ec014096add08bf74ce66f05
+    parentId: wrk_da39733c191f40cb87b8d6751fbfd413
+    modified: 1690316181647
+    created: 1687059332343
+    url: "{{ _.baseURL }}login/"
+    name: Login
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"email": "manu@mail.com",
+        	"password": "1234"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication: {}
+    metaSortKey: -1686918016056
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: env_f4f9d76baf7f45e09527c7c6d81f2c06
+    parentId: wrk_da39733c191f40cb87b8d6751fbfd413
+    modified: 1690223911017
+    created: 1687050276622
+    name: Base Environment
+    data:
+      baseURL: http://127.0.0.1:3000/
+      token: "{% response 'body', 'req_69e837abb59b4e0a8e11edadff7f8ec6',
+        'b64::JC5hY2Nlc3M=::46b', 'never', 60 %}"
+    dataPropertyOrder:
+      "&":
+        - baseURL
+        - token
+    color: null
+    isPrivate: false
+    metaSortKey: 1687050276622
+    _type: environment
+  - _id: jar_727ef3cc47184e2a9643779cdd30c171
+    parentId: wrk_da39733c191f40cb87b8d6751fbfd413
+    modified: 1687050276625
+    created: 1687050276625
+    name: Default Jar
+    cookies: []
+    _type: cookie_jar
+  - _id: env_713a40e3d4a34e27b244e5a97ee1af1e
+    parentId: env_f4f9d76baf7f45e09527c7c6d81f2c06
+    modified: 1690224079094
+    created: 1690223845956
+    name: minha variáveis
+    data:
+      baseURL: http://127.0.0.1:3000/
+      token: "{% response 'body', 'req_598b0cb3142d4d198b8c706167308b32',
+        'b64::JC50b2tlbg==::46b', 'never', 60 %}"
+    dataPropertyOrder:
+      "&":
+        - baseURL
+        - token
+    color: null
+    isPrivate: false
+    metaSortKey: 1690223845956
+    _type: environment
