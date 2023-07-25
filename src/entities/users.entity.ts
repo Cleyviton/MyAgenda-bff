@@ -30,7 +30,7 @@ class User {
   @CreateDateColumn({ type: "date" })
   registrationDate?: Date | string;
 
-  @OneToMany(() => Contact, (contact) => contact.user)
+  @OneToMany(() => Contact, (contact) => contact.user, { cascade: true })
   contact: Contact[];
 
   @BeforeInsert()

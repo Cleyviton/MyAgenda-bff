@@ -8,21 +8,28 @@ const checkExistingEmail = async (
   next: NextFunction
 ): Promise<Response | void> => {
   const userRepository = AppDataSource.getRepository(User);
-  const user = await userRepository.findOneBy({
-    id: parseInt(req.params.id),
+
+  const ExistingEmail: boolean | undefined = await userRepository.exist({
+    where: {
+      email: req.body.email,
+    },
   });
 
-  if (req.body.email != user!.email) {
-    const ExistingEmail: boolean | undefined = await userRepository.exist({
-      where: {
-        email: req.body.email,
-      },
-    });
-
-    if (ExistingEmail) {
+  if (ExistingEmail) {
+    if (req.method == "POST") {
       return res.status(409).json({
         message: "Email already exists",
       });
+    } else {
+      const user = await userRepository.findOneBy({
+        id: parseInt(res.locals.UserId),
+      });
+
+      if (req.body.email != user!.email) {
+        return res.status(409).json({
+          message: "Email already exists",
+        });
+      }
     }
   }
 
