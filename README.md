@@ -4,73 +4,31 @@
 
 <h3> Preparação do ambiente <h3>
 
-<p>Instalar o pacote <strong>pytest-testdox</strong>:</p>
+<p>Antes de tudo, clone o repositório em sua máquina</p>
+
+<p> Em seguida, dentro da pasta raiz do projeto, instale o pacote de <strong>dependências</strong> rodando o seguinte comando no seu terminal:</p>
 
 ```shell
-pip install pytest-testdox
+npm install
 ```
 
-<p>Rodar os testes referentes a cada tarefa isoladamente:</p>
+<p>Para criar a conexão com o seu banco de dados, crie um arquivo .env na raiz do projeto como no exempo do arquivo .env.exemple e preencha com os seus dados:</p>
 
 ```shell
-pytest --testdox -vvs caminho/para/o/modulo/da/tarefa
+DATABASE_URL=postgres://<username>:<password>@<host>:<port>/<database>
+SECRET_KEY=secretKey
 ```
 
-Exemplo:
-
-<ul>
-<li>Tarefa 1</li>
+<p>Execute as migrações para aplica-las em seu banco de dados rodando o seguinte comando no terminal:</p>
 
 ```shell
-pytest --testdox -vvs tests/tarefas/tarefa_1/
+npm run typeorm migration:run -- -d ./src/data-source.ts
 ```
 
-<li>Tarefa 2</li>
+<h3> Parabéns!! O seu projeto backend está pronto para rodar :) <h3>
+
+<p>Execute o comando a seguir para rodar o projeto:</p>
 
 ```shell
-pytest --testdox -vvs tests/tarefas/tarefa_2/
-```
-
-<li>Tarefa 3</li>
-
-```shell
-pytest --testdox -vvs tests/tarefas/tarefa_3/
-```
-
-</ul>
-
-### **Importante!!**
-
-Caso esteja utilizando Windows e, ao rodar o comando `pytest --testdox` aparecer um erro de **cmdlet**, troque o inicio do comando pelo seguinte:
-
-```shell
-python -m pytest --testdox
-```
-
-<hr>
-<p>Você também pode rodar cada método de teste isoladamente:</p>
-
-```shell
-pytest --testdox -vvs caminho/para/o/arquivo/de/teste::NomeDaClasse::nome_do_metodo_de_teste
-```
-
-<p>Exemplo: executar somente "test_can_get_product_by_id".</p>
-
-```shell
-pytest --testdox -vvs tests/tarefas/tarefa_1/test_get_product_by_id.py::TestGetProductById::test_can_get_product_by_id
-```
-
-<hr>
-<p>Os testes referentes as funcionalidades extras não são executados por padrão caso você não especifique o caminho até eles. Então caso você queira os executar, rode:</p>
-
-```shell
-pytest --testdox -vvs tests/tarefas/tarefa_3/extra_add_product.py
-```
-
-## Rodando todos os testes
-
-Para rodar todos os testes da aplicação de uma vez, execute o seguinte comando no terminal (estando na raiz do projeto)
-
-```shell
-pytest --testdox
+npm run dev
 ```
