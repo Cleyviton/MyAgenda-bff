@@ -27,7 +27,7 @@ const updateContactService = async (
     throw new AppError("Contact not found", 404);
   }
 
-  if (data.email != oldContact.email) {
+  if (data.email && data.email != oldContact.email) {
     const ExistingEmail: boolean | undefined = await contactRepository.exist({
       where: {
         user: {
