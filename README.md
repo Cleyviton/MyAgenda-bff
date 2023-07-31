@@ -24,7 +24,7 @@ SECRET_KEY=secretKey
 
 ```shell
 utilizando npm: npm run typeorm migration:run -- -d ./src/data-source.ts
-utilizando yarn: yarn typeorm migration:run -- -d ./src/data-source.ts
+utilizando yarn: yarn typeorm migration:run
 ```
 
 <h3> Parabéns!! O seu projeto backend está pronto para rodar :) <h3>
